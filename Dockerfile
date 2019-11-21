@@ -1,16 +1,14 @@
-# base image
-FROM node:12.2.0-alpine
+# *Assumes ./build Exists from Azure pipeline*
 
-# set working directory
-WORKDIR /app
+# Production Environment
+FROM nginx:1.16.0-alpine
+COPY --from=build /app/build /usr/share/nginx/html
 
-# add `/app/node_modules/.bin` to $PATH
-ENV PATH /app/node_modules/.bin:$PATH
+# Removes the default config file
+RUN rm /etc/nginx/conf.d/default.conf
 
-# install and cache app dependencies
-COPY package.json /app/package.json
-RUN yarn install --silent
-RUN npm install react-scripts@3.0.1 -g --silent
+# Use our config file
+COPY /build/nginx.conf /etc/nginx/conf.d
 
-# start app
-CMD ["npm", "start"]
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
