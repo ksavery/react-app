@@ -76,7 +76,6 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "test:staged": "cross-env CI=true yarn test --env=jsdom --passWithNoTests --findRelatedTests",
     "lint:fix": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
     "pretty-quick": "npx pretty-quick"
   },
@@ -153,7 +152,6 @@
   "lint-staged": {
     "src/*.+(js|jsx)": [
       "eslint --fix",
-      "test:staged",
       "git add"
     ],
     "src/*.+(json|css|md|scss)": [
