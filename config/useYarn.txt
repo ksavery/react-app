@@ -1,0 +1,9 @@
+---------------------------------------
+Please use Yarn!
+  `yarn install`
+    - Installs dependencies
+  `yarn start`
+    - Starts the app
+  `yarn add <package>`
+    - Adds new Dependency
+---------------------------------------
