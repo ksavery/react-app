@@ -1,5 +1,8 @@
-'use strict';
-
+/* eslint-disable consistent-return */
+/* eslint-disable func-names */
+/* eslint-disable global-require */
+/* eslint-disable import/order */
+/* eslint-disable no-console */
 // Do this as the first thing so that any code reading it knows the right env.
 process.env.BABEL_ENV = 'development';
 process.env.NODE_ENV = 'development';
@@ -51,11 +54,11 @@ if (process.env.HOST) {
 // browserslist defaults.
 const { checkBrowsers } = require('react-dev-utils/browsersHelper');
 checkBrowsers(paths.appPath, isInteractive)
-  .then(() => {
+  .then(() => 
     // We attempt to use the default port but if it is busy, we offer the user to
     // run on a different port. `choosePort()` Promise resolves to the next free port.
-    return choosePort(HOST, DEFAULT_PORT);
-  })
+    choosePort(HOST, DEFAULT_PORT)
+  )
   .then(port => {
     if (port == null) {
       // We have not found a port.

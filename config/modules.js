@@ -1,10 +1,10 @@
-'use strict';
-
+/* eslint-disable consistent-return */
+/* eslint-disable global-require */
 const fs = require('fs');
 const path = require('path');
-const paths = require('./paths');
 const chalk = require('react-dev-utils/chalk');
 const resolve = require('resolve');
+const paths = require('./paths');
 
 /**
  * Get additional module paths based on the baseUrl of a compilerOptions object.
@@ -12,7 +12,7 @@ const resolve = require('resolve');
  * @param {Object} options
  */
 function getAdditionalModulePaths(options = {}) {
-  const baseUrl = options.baseUrl;
+  const {baseUrl} = options;
 
   // We need to explicitly check for null and undefined (and not a falsy value) because
   // TypeScript treats an empty string as `.`.
@@ -62,7 +62,7 @@ function getAdditionalModulePaths(options = {}) {
  * @param {*} options
  */
 function getWebpackAliases(options = {}) {
-  const baseUrl = options.baseUrl;
+  const {baseUrl} = options;
 
   if (!baseUrl) {
     return {};
@@ -83,7 +83,7 @@ function getWebpackAliases(options = {}) {
  * @param {*} options
  */
 function getJestAliases(options = {}) {
-  const baseUrl = options.baseUrl;
+  const {baseUrl} = options;
 
   if (!baseUrl) {
     return {};
@@ -131,7 +131,7 @@ function getModules() {
   const additionalModulePaths = getAdditionalModulePaths(options);
 
   return {
-    additionalModulePaths: additionalModulePaths,
+    additionalModulePaths,
     webpackAliases: getWebpackAliases(options),
     jestAliases: getJestAliases(options),
     hasTsConfig,
