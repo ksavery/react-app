@@ -9,6 +9,7 @@ import history from 'utils/history';
 import 'sanitize.css/sanitize.css';
 
 import App from 'containers/App';
+import CacheBuster from 'containers/CacheBuster';
 import * as serviceWorker from './serviceWorker';
 
 import configureStore from './configureStore';
@@ -19,11 +20,13 @@ const store = configureStore(initialState, history);
 const MOUNT_NODE = document.getElementById('root');
 
 ReactDOM.render(
-  <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <App />
-    </ConnectedRouter>
-  </Provider>,
+  <CacheBuster>
+    <Provider store={store}>
+      <ConnectedRouter history={history}>
+        <App />
+      </ConnectedRouter>
+    </Provider>
+  </CacheBuster>,
   MOUNT_NODE,
 );
 

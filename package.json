@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "prebuild": "node scripts/prebuild/genVer.js",
     "preinstall": "npx use-yarn -f config/useYarn.txt",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
@@ -145,6 +146,7 @@
     "postcss-safe-parser": "4.0.1",
     "prettier": "^1.19.1",
     "pretty-quick": "^2.0.1",
+    "prop-types": "^15.7.2",
     "react": "^16.10.2",
     "react-app-polyfill": "^1.0.4",
     "react-dev-utils": "^9.1.0",
