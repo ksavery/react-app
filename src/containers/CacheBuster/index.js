@@ -1,7 +1,8 @@
-/* eslint-disable no-console */
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { log } from 'utils/log';
 import packageJson from '../../../package.json';
+
 global.appVersion = packageJson.version;
 
 // version from response - first param, local version second param
@@ -22,7 +23,7 @@ const semverGreaterThan = (versionA, versionB) => {
 };
 
 const refreshCacheAndReload = () => {
-  console.log('Clearing cache and hard reloading...');
+  log.info('Clearing cache and hard reloading...');
   if (caches) {
     // Service worker cache should be cleared with caches.delete()
     caches.keys().then(names => names.forEach(name => caches.delete(name)));
@@ -46,11 +47,11 @@ function CacheBuster({ children }) {
 
         const shouldForceRefresh = semverGreaterThan(latestVersion, currentVersion);
         if (shouldForceRefresh) {
-          console.log(`We have a new version - ${latestVersion}. Should force refresh`);
+          log.info(`We have a new version - ${latestVersion}. Should force refresh`);
           setIsLatestVersion(false);
           setLoading(false);
         } else {
-          console.log(`You already have the latest version - ${latestVersion}. No cache refresh needed.`);
+          log.info(`You already have the latest version - ${latestVersion}. No cache refresh needed.`);
           setIsLatestVersion(true);
           setLoading(false);
         }
@@ -68,7 +69,7 @@ function CacheBuster({ children }) {
 
 const { node } = PropTypes;
 CacheBuster.propTypes = {
-  children: PropTypes.oneOfType(node, PropTypes.arrayOf(node)),
+  children: PropTypes.oneOfType([node, PropTypes.arrayOf(node)]),
 };
 
 export default CacheBuster;
