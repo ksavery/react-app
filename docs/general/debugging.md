@@ -48,5 +48,3 @@ You can super charge your React debugging workflow via VS Code and Chrome. Here 
 You can then set breakpoints directly from inside VS Code, use stepping with the Chrome or VS Code buttons and more.
 
 Read all about it in the [Debugger for Chrome page](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome).
-
-**Note**: There's currently a [known problem](https://github.com/react-boilerplate/react-boilerplate/pull/1698) with source maps and VS Code. You can change your Webpack dev config to use `inline-source-map` instead of `eval-source-map` and the issue should be resolved.
