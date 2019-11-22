@@ -10,6 +10,7 @@ import 'sanitize.css/sanitize.css';
 
 import App from 'containers/App';
 import CacheBuster from 'containers/CacheBuster';
+import LanguageProvider, { translationMessages } from 'containers/LanguageProvider';
 import * as serviceWorker from './serviceWorker';
 
 import configureStore from './configureStore';
@@ -22,9 +23,11 @@ const MOUNT_NODE = document.getElementById('root');
 ReactDOM.render(
   <CacheBuster>
     <Provider store={store}>
-      <ConnectedRouter history={history}>
-        <App />
-      </ConnectedRouter>
+      <LanguageProvider messages={translationMessages}>
+        <ConnectedRouter history={history}>
+          <App />
+        </ConnectedRouter>
+      </LanguageProvider>
     </Provider>
   </CacheBuster>,
   MOUNT_NODE,

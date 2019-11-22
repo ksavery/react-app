@@ -5,6 +5,7 @@
 import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
 
+import languageProviderReducer from 'containers/LanguageProvider/redux/reducer';
 import history from 'utils/history';
 
 /**
@@ -12,6 +13,7 @@ import history from 'utils/history';
  */
 export default function createReducer(injectedReducers = {}) {
   const rootReducer = combineReducers({
+    language: languageProviderReducer,
     router: connectRouter(history),
     ...injectedReducers,
   });
