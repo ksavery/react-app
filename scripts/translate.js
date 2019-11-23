@@ -11,12 +11,12 @@ const nodeGlob = require('glob');
 const { transform } = require('@babel/core');
 const get = require('lodash/get');
 
-const animateProgress = require('./helpers/progress');
-const addCheckmark = require('./helpers/checkmark');
+const animateProgress = require('./internal/helpers/progress');
+const addCheckmark = require('./internal/helpers/checkmark');
 
-const { appLocales, DEFAULT_LOCALE } = require('../../src/i18n');
+const { appLocales, DEFAULT_LOCALE } = require('../src/i18n');
 
-const babel = require('../../babel.config.js');
+const babel = require('../babel.config.js');
 const { presets } = babel;
 let plugins = babel.plugins || [];
 

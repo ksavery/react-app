@@ -5,7 +5,7 @@
   "scripts": {
     "prebuild": "node scripts/internal/genVer.js",
     "preinstall": "npx use-yarn -f config/useYarn.txt",
-    "extract-intl": "node scripts/internal/extract-intl.js",
+    "translate": "cross-env NODE_ENV=development node scripts/translate.js",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
@@ -25,7 +25,9 @@
     ]
   },
   "dependencies": {
+    "@babel/cli": "^7.7.4",
     "@babel/core": "7.6.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.7.4",
     "@formatjs/intl-relativetimeformat": "^4.4.3",
     "@svgr/webpack": "4.3.2",
     "@testing-library/jest-dom": "^4.2.4",
@@ -43,7 +45,6 @@
     "babel-jest": "^24.9.0",
     "babel-loader": "8.0.6",
     "babel-plugin-named-asset-import": "^0.3.4",
-    "babel-plugin-react-intl": "^5.1.4",
     "babel-preset-react-app": "^9.0.2",
     "camelcase": "^5.2.0",
     "case-sensitive-paths-webpack-plugin": "2.2.0",
