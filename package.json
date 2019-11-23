@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
     "prebuild": "node scripts/internal/genVer.js",
     "preinstall": "npx use-yarn -f config/useYarn.txt",
     "translate": "cross-env NODE_ENV=development node scripts/translate.js",
@@ -112,6 +113,7 @@
     "sass-loader": "7.2.0",
     "semver": "6.3.0",
     "shelljs": "^0.8.3",
+    "source-map-explorer": "^2.1.1",
     "style-loader": "1.0.0",
     "terser-webpack-plugin": "1.4.1",
     "ts-pnp": "1.1.4",
