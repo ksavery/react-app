@@ -4,13 +4,14 @@ const path = require('path');
 const prettierOptions = JSON.parse(fs.readFileSync(path.resolve(__dirname, '.prettierrc'), 'utf8'));
 
 module.exports = {
-  parser: 'babel-eslint',
+  parser: '@typescript-eslint/parser',
   extends: ['airbnb', 'prettier', 'prettier/react'],
-  plugins: ['prettier', 'redux-saga', 'react', 'react-hooks', 'jsx-a11y'],
+  plugins: ['@typescript-eslint', 'prettier', 'redux-saga', 'react', 'react-hooks', 'jsx-a11y'],
   settings: {
     'import/resolver': {
       node: {
         paths: ['src'],
+        extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
       },
     },
   },

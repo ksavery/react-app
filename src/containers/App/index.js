@@ -11,7 +11,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import Home from '../../views/Home/Loadable';
 
-export default function App() {
+function App() {
   return (
     <div>
       <Switch>
@@ -20,3 +20,5 @@ export default function App() {
     </div>
   );
 }
+
+export default App;
