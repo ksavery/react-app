@@ -69,18 +69,20 @@ function requestBuilder(options) {
   };
 }
 
-export function get(url, config = {}) {
+function get(url, config = {}) {
   return requestBuilder({ method: 'GET', url, ...config });
 }
 
-export function put(url, data, config = {}) {
+function put(url, data, config = {}) {
   return requestBuilder({ method: 'PUT', url, data, ...config });
 }
 
-export function post(url, data, config = {}) {
+function post(url, data, config = {}) {
   return requestBuilder({ method: 'POST', url, data, ...config });
 }
 
-export function del(url, config = {}) {
+function del(url, config = {}) {
   return requestBuilder({ method: 'DELETE', ...config });
 }
+
+export { get, put, post, del };

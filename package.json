@@ -24,21 +24,6 @@
       "last 1 safari version"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn pretty-quick --staged && yarn lint-staged"
-    }
-  },
-  "lint-staged": {
-    "src/*.+(js|jsx)": [
-      "eslint --fix",
-      "git add"
-    ],
-    "src/*.+(json|css|md|scss)": [
-      "prettier --write",
-      "git add"
-    ]
-  },
   "dependencies": {
     "@babel/core": "7.6.0",
     "@formatjs/intl-relativetimeformat": "^4.4.3",

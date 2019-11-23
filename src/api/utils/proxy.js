@@ -20,4 +20,4 @@ const getOptions = url => ({
 
 const proxyApi = (url, path) => proxy(path, getOptions(url));
 
-module.exports = proxyApi;
+export { proxyApi };
