@@ -1,11 +1,11 @@
 import languageProviderReducer from '../reducer';
-import { CHANGE_LOCALE } from '../constants';
+import { CHANGE_LOCALE, LOCALE } from '../constants';
 
 /* eslint-disable default-case, no-param-reassign */
 describe('languageProviderReducer', () => {
   it('returns the initial state', () => {
     expect(languageProviderReducer(undefined, {})).toEqual({
-      locale: 'en',
+      [LOCALE]: 'en',
     });
   });
 
@@ -13,10 +13,10 @@ describe('languageProviderReducer', () => {
     expect(
       languageProviderReducer(undefined, {
         type: CHANGE_LOCALE,
-        locale: 'de',
+        [LOCALE]: 'de',
       }),
     ).toEqual({
-      locale: 'de',
+      [LOCALE]: 'de',
     });
   });
 });

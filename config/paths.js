@@ -1,4 +1,5 @@
-/* eslint-disable global-require */
+/* eslint-disable */
+
 const path = require('path');
 const fs = require('fs');
 const url = require('url');
@@ -14,11 +15,11 @@ function ensureSlash(inputPath, needsSlash) {
   const hasSlash = inputPath.endsWith('/');
   if (hasSlash && !needsSlash) {
     return inputPath.substr(0, inputPath.length - 1);
-  } if (!hasSlash && needsSlash) {
+  } else if (!hasSlash && needsSlash) {
     return `${inputPath}/`;
-  } 
-  return inputPath;
-  
+  } else {
+    return inputPath;
+  }
 }
 
 const getPublicUrl = appPackageJson => envPublicUrl || require(appPackageJson).homepage;
@@ -51,7 +52,7 @@ const moduleFileExtensions = [
 
 // Resolve file paths in the same order as webpack
 const resolveModule = (resolveFn, filePath) => {
-  const extension = moduleFileExtensions.find(ext => fs.existsSync(resolveFn(`${filePath}.${ext}`)));
+  const extension = moduleFileExtensions.find(extension => fs.existsSync(resolveFn(`${filePath}.${extension}`)));
 
   if (extension) {
     return resolveFn(`${filePath}.${extension}`);

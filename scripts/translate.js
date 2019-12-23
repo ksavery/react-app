@@ -48,19 +48,12 @@ const task = message => {
 // Wrap async functions below into a promise
 const glob = pattern =>
   new Promise((resolve, reject) => {
-    nodeGlob(
-      pattern,
-      (error, value) => (error ? reject(error) : resolve(value)),
-    );
+    nodeGlob(pattern, (error, value) => (error ? reject(error) : resolve(value)));
   });
 
 const readFile = fileName =>
   new Promise((resolve, reject) => {
-    fs.readFile(
-      fileName,
-      'utf8',
-      (error, value) => (error ? reject(error) : resolve(value)),
-    );
+    fs.readFile(fileName, 'utf8', (error, value) => (error ? reject(error) : resolve(value)));
   });
 
 // Store existing translations into memory
@@ -116,9 +109,7 @@ const memoryTaskDone = task('Storing language files in memory');
 memoryTask.then(files => {
   memoryTaskDone();
 
-  const extractTask = Promise.all(
-    files.map(fileName => extractFromFile(fileName)),
-  );
+  const extractTask = Promise.all(files.map(fileName => extractFromFile(fileName)));
   const extractTaskDone = task('Run extraction on all files');
   // Run extraction on all files that match the glob on line 16
   extractTask.then(() => {
@@ -132,9 +123,7 @@ memoryTask.then(files => {
 
     for (const locale of appLocales) {
       translationFileName = `src/translations/${locale}.json`;
-      localeTaskDone = task(
-        `Writing translation messages for ${locale} to: ${translationFileName}`,
-      );
+      localeTaskDone = task(`Writing translation messages for ${locale} to: ${translationFileName}`);
 
       // Sort the translation JSON file so that git diffing is easier
       // Otherwise the translation messages will jump around every time we extract
