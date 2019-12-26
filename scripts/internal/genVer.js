@@ -8,7 +8,7 @@ const jsonData = {
   version: appVersion
 };
 
-var jsonContent = JSON.stringify(jsonData);
+var jsonContent = JSON.stringify(jsonData, null, 2);
 
 fs.writeFile('./public/meta.json', jsonContent, 'utf8', function(err) {
   if (err) {
