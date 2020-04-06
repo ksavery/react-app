@@ -36,7 +36,7 @@
     "express": "4.17.1",
     "http-proxy-middleware": "^0.20.0",
     "ip": "1.1.5",
-    "minimist": "1.2.0"
+    "minimist": "1.2.3"
 },
 "devDependencies": {
     "@babel/core": "7.7.7",
